@@ -1,0 +1,12 @@
+<html>
+<head>
+<title>欢迎光临</title>
+</head>
+<body>
+<h1>欢迎光临，自强学堂！</h1>
+<h3>站点：{{info_dict.site}}
+内容：{{info_dict.content}}</h3>
+<h4>{{request.user}}</h4>
+<a href="{{ request.path }}?{{ request.GET.urlencode }}&delete=1">当前网址加参数 delete</a>
+</body>
+<html>

@@ -59,11 +59,11 @@ class AbstractUser(AbstractBaseUser, PermissionsMixin):
 
 
 class User(AbstractUser):
-
     """
     Concrete class of AbstractUser.
     Use this if you don't need to extend User.
     """
-	name =models.CharField()
+    name = models.CharField()
+
     class Meta(AbstractUser.Meta):
         swappable = 'AUTH_USER_MODEL'

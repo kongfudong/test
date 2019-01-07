@@ -59,11 +59,36 @@ class AbstractUser(AbstractBaseUser, PermissionsMixin):
 
 
 class User(AbstractUser):
+
     """
     Concrete class of AbstractUser.
     Use this if you don't need to extend User.
     """
-    name = models.CharField()
-
+    name = models.CharField(max_length=20,default='第一次登陆')
+    sex = models.CharField(max_length=3,default='男') #性别
+    birthday = models.CharField(max_length=20,default='1970-01-01') #年龄
+    job_number = models.CharField(max_length=10,default='00001') #工号
+	
+	
+    zhengzhi_mianmao = models.CharField(max_length=10,default='群众') #政治面貌
+    zhengzhi_time = models.CharField(max_length=20,default='2010-01-01') #入党时间
+	
+    job = models.CharField(max_length=30,default='工程师')
+    job_time = models.CharField(max_length=20,default='2010-01-01')
+	
+    job2 = models.CharField(max_length=30,default='员工')
+    id_number = models.CharField(max_length=30,default='372922199102019999')
+	
+    xueli = models.CharField(max_length=30,default='本科')
+    school = models.CharField(max_length=30,default='山东农业大学')
+    graduate_time = models.CharField(max_length=20,default='2012-07-26')
+    job_join_time = models.CharField(max_length=20,default='2016-07-27')
+    team_belong = models.CharField(max_length=20,default='NBM')
+	
+    phone = models.CharField(max_length=30,default='18763897281')
+	
+	
+	
+	
     class Meta(AbstractUser.Meta):
         swappable = 'AUTH_USER_MODEL'

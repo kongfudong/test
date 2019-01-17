@@ -40,7 +40,7 @@ class UserModelFilter(admin.SimpleListFilter):
 class UserAdmin(BaseUserAdmin):
     fieldsets = (
         (None, {
-            'fields': ('email', 'password')
+            'fields': ('email', 'password', 'name', 'sex', 'birthday', 'job_number', 'zhengzhi_mianmao','zhengzhi_time', 'job', 'job_time', 'job2', 'id_number', 'xueli', 'school', 'graduate_time', 'job_join_time', 'team_belong', 'phone')
         }),
         (_('Permissions'), {
             'fields': ('is_active', 'is_staff', 'is_superuser',
@@ -61,7 +61,7 @@ class UserAdmin(BaseUserAdmin):
     form = UserChangeForm
     add_form = UserCreationForm
 
-    list_display = ('email', 'is_active')
+    list_display = ('name', 'email', 'is_active')
     list_filter = (UserModelFilter, 'is_staff', 'is_superuser', 'is_active',)
     search_fields = ('email',)
     ordering = ('email',)

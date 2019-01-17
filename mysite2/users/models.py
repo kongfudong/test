@@ -7,6 +7,24 @@ from django.utils.translation import ugettext_lazy as _
 
 from .conf import settings
 from .managers import UserInheritanceManager, UserManager
+from datetime import datetime
+import json,time
+
+
+def birthday_filter(birthday):
+    t = time.time()
+    dt = datetime.formttimestamp(t)
+
+    b_year = birthday[:4]
+    b_month = birthday[4:6]
+    b_day = birthday[6:]
+
+    age = int(dt.year) - int(b_year) - 1
+
+    if int(b_month) > (int(dt.month) - 1):
+        if int(b_day) > (int(dt.day) - 1):
+            age += 1
+    return age
 
 
 class AbstractUser(AbstractBaseUser, PermissionsMixin):
@@ -59,36 +77,37 @@ class AbstractUser(AbstractBaseUser, PermissionsMixin):
 
 
 class User(AbstractUser):
-
     """
     Concrete class of AbstractUser.
     Use this if you don't need to extend User.
     """
-    name = models.CharField(max_length=20,default='第一次登陆')
-    sex = models.CharField(max_length=3,default='男') #性别
-    birthday = models.CharField(max_length=20,default='1970-01-01') #年龄
-    job_number = models.CharField(max_length=10,default='00001') #工号
-	
-	
-    zhengzhi_mianmao = models.CharField(max_length=10,default='群众') #政治面貌
-    zhengzhi_time = models.CharField(max_length=20,default='2010-01-01') #入党时间
-	
-    job = models.CharField(max_length=30,default='工程师')
-    job_time = models.CharField(max_length=20,default='2010-01-01')
-	
-    job2 = models.CharField(max_length=30,default='员工')
-    id_number = models.CharField(max_length=30,default='372922199102019999')
-	
-    xueli = models.CharField(max_length=30,default='本科')
-    school = models.CharField(max_length=30,default='山东农业大学')
-    graduate_time = models.CharField(max_length=20,default='2012-07-26')
-    job_join_time = models.CharField(max_length=20,default='2016-07-27')
-    team_belong = models.CharField(max_length=20,default='NBM')
-	
-    phone = models.CharField(max_length=30,default='18763897281')
-	
-	
-	
-	
+    name = models.CharField(max_length=20, default='第一次登陆')
+    sex = models.CharField(max_length=3, default='男')  # 性别
+    birthday = models.CharField(max_length=20, default='1970-01-01')  # 年龄
+    job_number = models.CharField(max_length=10, default='00001')  # 工号
+
+    zhengzhi_mianmao = models.CharField(max_length=10, default='群众')  # 政治面貌
+    zhengzhi_time = models.CharField(max_length=20, default='2010-01-01')  # 入党时间
+
+    job = models.CharField(max_length=30, default='工程师')
+    job_time = models.CharField(max_length=20, default='2010-01-01')
+
+    job2 = models.CharField(max_length=30, default='员工')
+    id_number = models.CharField(max_length=30, default='372922199102019999')
+
+    xueli = models.CharField(max_length=30, default='本科')
+    school = models.CharField(max_length=30, default='山东农业大学')
+    graduate_time = models.CharField(max_length=20, default='2012-07-26')
+    job_join_time = models.CharField(max_length=20, default='2016-07-27')
+    team_belong = models.CharField(max_length=20, default='NBM')
+
+    phone = models.CharField(max_length=30, default='18763897281')
+
     class Meta(AbstractUser.Meta):
         swappable = 'AUTH_USER_MODEL'
+
+    def __str__(self):
+        return self.name
+
+    def age(self):
+        return birthday_filter(self.birthday)

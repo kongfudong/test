@@ -21,5 +21,6 @@ from main import views as main
 urlpatterns = [
     url(r'^$', main.index),
     url(r'^accounts/',include('users.urls')),
+    url(r'^accounts/profile',main.accounts_profile),
     url(r'^admin/', admin.site.urls),
 ]

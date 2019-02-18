@@ -2,6 +2,7 @@ from django.db import models
 import datetime
 from django.utils import timezone
 
+
 # Create your models here.
 
 
@@ -17,7 +18,7 @@ class Question(models.Model):
 
 
 class Choice(models.Model):
-    question = models.ForeignKey(Question,on_delete=models.CASCADE)
+    question = models.ForeignKey(Question, on_delete=models.CASCADE)
     choice_text = models.CharField(max_length=200)
     votes = models.ImageField(default=0)
 

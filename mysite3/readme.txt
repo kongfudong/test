@@ -17,3 +17,5 @@ Exception Value:
 must be str, not int
 Exception Location:	C:\Users\sdau_\Desktop\TestMange\mysite3\polls\views.py in vote, line 43
 10.2019-02-25:模型层modellayer；模型和字段;关系类型字段；模型的元数据
+11.2019-02-28:视图层
+12.2019-03-04:路由转发;URL的反向解析和命名空间；HttpRequest对象；

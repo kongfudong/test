@@ -19,3 +19,6 @@ Exception Location:	C:\Users\sdau_\Desktop\TestMange\mysite3\polls\views.py in v
 10.2019-02-25:模型层modellayer；模型和字段;关系类型字段；模型的元数据
 11.2019-02-28:视图层
 12.2019-03-04:路由转发;URL的反向解析和命名空间；HttpRequest对象；
+13.2019-03-06：QueryDict对象>>暂停学习，先学习一下应用
+14.2019-03-06：创建用户登录与注册系统
+15.2019-03-07:搭建项目环境（学习自动化配置环境);设计数据模型

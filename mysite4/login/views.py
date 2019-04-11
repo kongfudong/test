@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
 from  . import models
+from djnago import forms
 # Create your views here.
 
 
@@ -11,8 +12,11 @@ def index(request):
 
 def login(request):
     if request.method == "POST":
-        username = request.POST.get('username',None)
-        password = request.POST.get('password',None)
+        login_form = forms.UserForm(request.POST)
+        message = "请填写检查内容"
+        if login_form.is_valid：
+            username = login_form.cleaned_data['username']
+            password = login_form.cleaned_data['password']
         message = "所有字段必须填写！"
         if username and password:
             username = username.strip()

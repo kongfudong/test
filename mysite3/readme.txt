@@ -21,4 +21,6 @@ Exception Location:	C:\Users\sdau_\Desktop\TestMange\mysite3\polls\views.py in v
 12.2019-03-04:路由转发;URL的反向解析和命名空间；HttpRequest对象；
 13.2019-03-06：QueryDict对象>>暂停学习，先学习一下应用
 14.2019-03-06：创建用户登录与注册系统
-15.2019-03-07:搭建项目环境（学习自动化配置环境);设计数据模型
+15.2019-03-07:搭建项目环境（学习自动化配置环境);设计数据模型;superuser:wudong/zhang920229 wudong@123.com
+   url和视图
+ 16.2019-03-12:Django表单;爬取租房信息
